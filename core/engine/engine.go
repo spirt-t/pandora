@@ -8,7 +8,10 @@ package engine
 import (
 	"context"
 	"fmt"
+	"os"
+	"strconv"
 	"sync"
+	"time"
 
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
@@ -384,6 +387,8 @@ func (p *instancePool) buildNewInstanceSchedule(startCtx context.Context, cancel
 		return
 	}
 	sharedRPSSchedule = coreutil.NewCallbackOnFinishSchedule(sharedRPSSchedule, func() {
+		defer os.Setenv("LAST_SHOT_TIME", strconv.FormatInt(time.Now().Unix(), 10))
+
 		select {
 		case <-startCtx.Done():
 			p.log.Debug("RPS schedule has been finished")
