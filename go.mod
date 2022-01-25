@@ -1,4 +1,4 @@
-module github.com/yandex/pandora
+module github.com/spirt-t/pandora
 
 go 1.17
 
