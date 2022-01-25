@@ -21,6 +21,7 @@ require (
 	github.com/spf13/afero v1.0.2
 	github.com/spf13/viper v1.0.0
 	github.com/stretchr/testify v1.7.0
+	github.com/yandex/pandora v0.3.5
 	go.uber.org/atomic v1.3.1
 	go.uber.org/zap v1.7.1
 	golang.org/x/net v0.0.0-20200822124328-c89045814202
@@ -47,7 +48,6 @@ require (
 	golang.org/x/text v0.3.0 // indirect
 	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013 // indirect
 	google.golang.org/protobuf v1.25.1-0.20200805231151-a709e31e5d12 // indirect
-	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 	gopkg.in/yaml.v2 v2.2.3 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
 )

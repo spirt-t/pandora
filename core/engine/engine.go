@@ -387,7 +387,10 @@ func (p *instancePool) buildNewInstanceSchedule(startCtx context.Context, cancel
 		return
 	}
 	sharedRPSSchedule = coreutil.NewCallbackOnFinishSchedule(sharedRPSSchedule, func() {
-		defer os.Setenv("LAST_SHOT_TIME", strconv.FormatInt(time.Now().Unix(), 10))
+		defer func() {
+			os.Setenv("LAST_SHOT_TIME", strconv.FormatInt(time.Now().Unix(), 10))
+			p.log.Info("LAST_SHOT_TIME: " + os.Getenv("LAST_SHOT_TIME"))
+		}()
 
 		select {
 		case <-startCtx.Done():
